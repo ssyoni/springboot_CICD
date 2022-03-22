@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: real1
+server:
+  port: 8081
+
+---      # 위 아래를 구분해주는 것
+spring:
+  profiles:
+    active: real2
+server:
+  port: 8082
