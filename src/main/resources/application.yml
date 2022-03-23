@@ -2,6 +2,7 @@ spring:
   profiles:
     group:
       "real1": "real1_port"
+      "real2": "real2_port"
 
 ---
 spring:
@@ -11,13 +12,6 @@ spring:
 
 server:
   port: 8081
-
----
-spring:
-  profiles:
-    group:
-      "real2": "real2_port"
-
 
 ---
 spring:
