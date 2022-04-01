@@ -17,7 +17,7 @@ public class TestController {
     private final Environment env;
 
     @GetMapping("/")
-    public String test(){
+    public String defaultUrl(){
         List<String> profile = Arrays.asList(env.getActiveProfiles());
         List<String> realProfiles = Arrays.asList("real1","real2");
         String defaultProfile = profile.isEmpty() ? "default" : profile.get(0);
@@ -26,5 +26,10 @@ public class TestController {
                 .filter(realProfiles::contains)
                 .findAny()
                 .orElse(defaultProfile);
+    }
+
+    @GetMapping("/test")
+    public String test(){
+        return "test url";
     }
 }
