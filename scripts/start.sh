@@ -4,7 +4,7 @@ ABSPATH=$(readlink -f $0)
 ABSDIR=$(dirname $ABSPATH)
 source ${ABSDIR}/profile.sh
 
-IDLE_PORT=${find_idle_port}
+IDLE_PORT=$(find_idle_port)
 REPOSITORY=/home/ec2-user/app/step4
 PROJECT_NAME=miniproject
 
