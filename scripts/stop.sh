@@ -16,8 +16,8 @@ then
   echo "> 현재 구동중인 애플리케이션이 없으므로 종료하지 않습니다."
 else
   echo "> docker stop ${IDLE_PROFILE}"
-  sudo docker stop ${IDLE_PROFILE}
+  docker stop ${IDLE_PROFILE}
   echo "> docker rm ${IDLE_PROFILE}"
-  sudo docker rm ${IDLE_PROFILE}
+  docker rm ${IDLE_PROFILE}
   sleep 5
 fi
