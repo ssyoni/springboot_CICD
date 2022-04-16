@@ -12,8 +12,9 @@ echo "> IDLE_PORT: $IDLE_PORT"
 echo "> curl -s http://3.35.50.206:$IDLE_PORT/profile"
 sleep 10
 
-for RETRY_COUNT in {1..10}
+for RETRY_COUNT in {1..50}
 do
+  echo "RETRY_COUNT ::: $RETRY_COUNT"
   RESPONSE=$(curl -s http://3.35.50.206:${IDLE_PORT}/profile)
   echo ">>>>>> RESPONSE : $RESPONSE"
   UP_COUNT=$(echo ${RESPONSE} | grep 'real' | wc -l)
