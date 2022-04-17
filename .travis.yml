@@ -18,6 +18,7 @@ before_deploy:
   - cp scripts/*.sh before-deploy/
   - cp appspec.yml before-deploy/
   - cp dockerfile before-deploy/                                # dockerfile 넘기기
+  - cp docker-compose.yml before-deploy/                        # docker-compose.yml 파일 넘기기
   - cp build/libs/*.jar before-deploy/
   - cd before-deploy && zip -r before-deploy *                  # before-deploy로 이동 후 전체 압축
   - cd ../ && mkdir -p deploy                                   # 상위 디렉토리로 이동 후 deploy 디렉토리 생성

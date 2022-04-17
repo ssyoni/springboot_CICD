@@ -13,25 +13,41 @@ echo "> cp $REPOSITORY/zip/*.jar $REPOSITORY/"
 
 cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
-echo "> 새 어플리케이션 배포"
-JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
+echo "> yes |cp -arpf $REPOSITORY/zip/dockerfile $REPOSITORY/"
 
-echo "> JAR Name: $JAR_NAME"
+yes |cp -arpf $REPOSITORY/zip/dockerfile $REPOSITORY/
 
-echo "> $JAR_NAME 에 실행권한 추가"
+echo "> yes |cp -arpf $REPOSITORY/zip/docker-compose.yml $REPOSITORY/"
 
-chmod +x $JAR_NAME
+yes |cp -arpf $REPOSITORY/zip/docker-compose.yml $REPOSITORY/
 
-echo "> $JAR_NAME 실행"
+echo "> docker-compose down"
 
-IDLE_PROFILE=$(find_idle_profile)
+docker-compose down
 
-echo "> $JAR_NAME 를 profile=$IDLE_PROFILE 로 실행합니다."
+echo "> docker-compose up -d"
 
-cd $REPOSITORY
+docker-compose up -d
 
-docker build -t spring ./
+#echo "> 새 어플리케이션 배포"
+#JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
 
-echo "> docker run -it --name $IDLE_PROFILE -d -e active=$IDLE_PROFILE -p $IDLE_PORT:$IDLE_PORT spring"
-
-docker run -it --name "$IDLE_PROFILE" -d -e active=$IDLE_PROFILE -p $IDLE_PORT:$IDLE_PORT spring
+#echo "> JAR Name: $JAR_NAME"
+#
+#echo "> $JAR_NAME 에 실행권한 추가"
+#
+#chmod +x $JAR_NAME
+#
+#echo "> $JAR_NAME 실행"
+#
+#IDLE_PROFILE=$(find_idle_profile)
+#
+#echo "> $JAR_NAME 를 profile=$IDLE_PROFILE 로 실행합니다."
+#
+#cd $REPOSITORY
+#docker build -t spring ./
+#
+#
+#echo "> docker run -it --name $IDLE_PROFILE -d -e active=$IDLE_PROFILE -p $IDLE_PORT:$IDLE_PORT spring"
+#
+#docker run -it --name "$IDLE_PROFILE" -d -e active=$IDLE_PROFILE -p $IDLE_PORT:$IDLE_PORT spring
